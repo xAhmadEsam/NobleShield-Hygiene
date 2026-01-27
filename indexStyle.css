@@ -10,6 +10,84 @@
             color: #333;
         }
 
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+        }
+
+        .loading-screen.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loading-svg {
+            width: 80%;
+            max-width: 800px;
+            height: auto;
+        }
+
+        .drawing-text {
+            font-size: 72px;
+            font-weight: 700;
+            fill: none;
+            stroke: #1e5a8e;
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            letter-spacing: 2px;
+            animation: drawStroke 3s ease-in-out forwards;
+        }
+
+        @keyframes drawStroke {
+            0% {
+                stroke-dasharray: 2000;
+                stroke-dashoffset: 2000;
+                opacity: 1;
+            }
+            85% {
+                stroke-dasharray: 2000;
+                stroke-dashoffset: 0;
+                opacity: 1;
+            }
+            100% {
+                stroke-dasharray: 2000;
+                stroke-dashoffset: 0;
+                opacity: 0;
+            }
+        }
+
+                /* Small-screen loader: stack words and increase size */
+        @media (max-width: 600px) {
+            .loading-svg {
+                width: 95%;
+                max-width: none;
+                height: auto;
+            }
+
+            .drawing-text {
+                font-size: 120px;
+                stroke-width: 4;
+                letter-spacing: 3px;
+                font-weight: 800;
+                
+            }
+
+            /* ensure tspan lines stack with relative spacing */
+            .drawing-text tspan {
+                /* dy in tspan controls spacing; no extra rules needed here */
+            }
+        }
+
         /* Navbar Styling */
         .navbar {
             background-color: var(--primary-color) !important;
@@ -39,7 +117,7 @@
         .hero-section {
             background: linear-gradient(135deg, var(--primary-color) 0%, #2c6ba8 100%);
             color: white;
-            padding: 80px 0;
+            padding: 40px 0;
             text-align: center;
         }
 
@@ -185,3 +263,4 @@
         .slide-in {
             opacity: 1;
         }
+
