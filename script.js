@@ -1,10 +1,12 @@
-// Handle loading screen
-document.addEventListener('DOMContentLoaded', function () {
-    // Hide loading screen after animation completes
+// Handle loading screen: keep showing until full page load
+window.addEventListener('load', function () {
     const loadingScreen = document.getElementById('loading-screen');
-    setTimeout(() => {
-        loadingScreen.classList.add('hide');
-    }, 3500); // 3500ms to account for animation + slight pause
+    if (loadingScreen) {
+        // Wait at least 3500ms after load before hiding the loader
+        setTimeout(() => {
+            loadingScreen.classList.add('hide');
+        }, 3500);
+    }
 });
 
 
