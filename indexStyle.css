@@ -115,6 +115,7 @@
             color: white;
             padding: 40px 0;
             text-align: center;
+            overflow-x: hidden;
         }
 
         .hero-content {
@@ -152,14 +153,22 @@
         .gallery-section {
             padding: 60px 0;
             background-color: var(--accent-color);
+            overflow: hidden;
+        }
+
+        .gallery-section .col-md-6 {
+            overflow: hidden;
         }
 
         .gallery-section img {
             width: 100%;
+            max-width: 500px;
             height: auto;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s;
+            margin: 0 auto;
+            display: block;
         }
 
         .gallery-section img:hover {
@@ -256,7 +265,5 @@
             100% { transform: scale(1); }
         }
 
-        .slide-in {
-            opacity: 1;
-        }
+
 
