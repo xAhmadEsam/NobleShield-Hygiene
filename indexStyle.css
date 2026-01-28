@@ -113,9 +113,20 @@
         .hero-section {
             background: linear-gradient(135deg, var(--primary-color) 0%, #2c6ba8 100%);
             color: white;
-            padding: 40px 0;
+            padding: 80px 0;
             text-align: center;
             overflow-x: hidden;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 40px 0;
+                min-height: auto;
+            }
         }
 
         .hero-content {
@@ -125,7 +136,7 @@
         }
 
         .hero-logo {
-            height: 140px;
+            height: 200px;
             width: auto;
             margin-bottom: 30px;
             animation: logoPulse 2s ease-in-out;
@@ -145,7 +156,7 @@
 
         @media (max-width: 768px) {
             .hero-logo {
-                height: 100px;
+                height: 140px;
             }
         }
 
@@ -263,6 +274,89 @@
             0% { transform: scale(1); }
             50% { transform: scale(1.04); }
             100% { transform: scale(1); }
+        }
+
+        /* Floating action buttons (WhatsApp + Phone) */
+        .floating-actions {
+            position: fixed;
+            right: 16px;
+            bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 99999;
+            opacity: 0;
+            transform: translateY(10px);
+            pointer-events: none;
+            transition: opacity .35s ease, transform .35s ease;
+        }
+
+        .floating-actions.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .floating-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .floating-btn:active,
+        .floating-btn:focus,
+        .floating-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.22);
+        }
+
+        .floating-btn svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        /* WhatsApp: rounded-square app-like style */
+        .floating-btn.whatsapp { background: #25D366; border-radius: 12px; }
+        .floating-btn.phone { background: var(--primary-color); }
+
+        @media (max-width: 420px) {
+            .floating-actions { right: 12px; bottom: 14px; }
+            .floating-btn { width: 44px; height: 44px; }
+            .floating-btn svg { width: 18px; height: 18px; }
+        }
+
+        /* Reduce modal / popup height and enable internal scrolling when needed */
+        #courseModal .modal-dialog {
+            max-width: 760px; /* keep modal reasonably wide on desktop */
+        }
+        #courseModal .modal-content {
+            max-height: 90vh; /* limit modal height to 70% of viewport */
+            overflow-y: auto; /* scroll inside modal if content is taller */
+        }
+
+        @media (max-width: 576px) {
+            #courseModal .modal-content {
+                max-height: 90vh; /* allow more height on very small screens */
+            }
+        }
+
+        /* Make the hero CTA match the hero background colors */
+        .hero-section .btn {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #022c55 100%) !important;
+            border-color: rgba(0,0,0,0.08) !important;
+            color: #ffffff !important;
+            box-shadow: 0 8px 20px rgba(30,90,142,0.18);
+        }
+        .hero-section .btn:hover,
+        .hero-section .btn:focus {
+            filter: brightness(0.95);
         }
 
 

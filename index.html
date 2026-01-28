@@ -45,6 +45,9 @@
             <img src="assets/imgs/logo.png" alt="NobleShield Hygiene Logo" class="hero-logo">
             <h1>Protect Your Brand with Certified Food Safety Training</h1>
             <p>Build consumer trust and meet United Kingdom food safety regulations with UK and European recognized HACCP and NobleShield Food Safety certification courses.</p>
+                <p>
+                    <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#courseModal">Enquire / Book a Course</button>
+                </p>
         </div>
     </section>
 
@@ -167,7 +170,11 @@
                 <a href="#home">Home</a>
                 <a href="#courses">Courses</a>
                 <a href="#coverage">Coverage</a>
-                <a href="mailto:info@nobleshieldhygiene.com">Contact Us</a>
+                <a href="mailto:nobleshieldhygiene@gmail.com">Contact Us</a>
+            </div>
+            <div class="footer-contact" style="margin-top:15px;">
+                <p><strong>Location:</strong> London 159 Kilburn High Road NW6 7HU</p>
+                <p><strong>Phone:</strong> <a href="tel:+00447301272753">+00447301272753</a>, <a href="tel:+00447526098834">+00447526098834</a></p>
             </div>
             <p style="margin-top: 20px; opacity: 0.8;">&copy; 2026 NobleShield Hygiene. All rights reserved.</p>
         </div>
@@ -175,6 +182,75 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Course Enquiry Modal -->
+        <div class="modal fade" id="courseModal" tabindex="-1" aria-labelledby="courseModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="courseModalLabel">Course Availability Enquiry</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="courseForm">
+                            <div class="mb-3">
+                                <label for="inputName" class="form-label">Full name</label>
+                                <input type="text" class="form-control" id="inputName" placeholder="Your full name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputEmail" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="inputEmail" placeholder="you@example.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputPhone" class="form-label">Phone</label>
+                                <input type="tel" class="form-control" id="inputPhone" placeholder="+44 7123 456789" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="selectCourse" class="form-label">Course selection</label>
+                                <select id="selectCourse" class="form-select" required>
+                                    <option value="">-- choose a course --</option>
+                                    <option>Level 1 International Award in Food Safety</option>
+                                    <option>Level 2 International Award in Food Safety</option>
+                                    <option>Level 3 International Award in Food Safety</option>
+                                    <option>HACCP and Management</option>
+                                    <option>Custom / Group Booking</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputSubject" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="inputSubject" placeholder="Message subject" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="textareaMessage" class="form-label">Message</label>
+                                <textarea id="textareaMessage" class="form-control" rows="4" placeholder="Any additional details (preferred dates, number of attendees, location...)" required></textarea>
+                            </div>
+                        </form>
+                        <div class="d-flex gap-2">
+                            <button id="sendWhatsAppBtn" class="btn btn-success flex-fill">Send via WhatsApp</button>
+                            <button id="sendEmailBtn" class="btn btn-secondary flex-fill">Send Email</button>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-link" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Floating WhatsApp and Phone buttons -->
+    <div class="floating-actions" aria-hidden="true">
+        <a class="floating-btn whatsapp" href="https://wa.me/447526098834" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp us on +447526098834">
+            <!-- App-style WhatsApp: white phone glyph over green rounded-square (background provided by .whatsapp) -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <path fill="#ffffff" d="M20.52 3.48A11.93 11.93 0 0012 0C5.37 0 .03 5.35 0 12.02 0 14.78.8 17.37 2.2 19.48L0 24l4.8-1.57A11.96 11.96 0 0012 24c6.63 0 12-5.37 12-12 0-3.19-1.24-6.19-3.48-8.42z" opacity="0" />
+                <path fill="#ffffff" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.23-.65.08-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.66-.5l-.57-.01c-.2 0-.52.07-.8.37s-1.04 1.02-1.04 2.48c0 1.46 1.06 2.88 1.21 3.08.15.2 2.09 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.69.25-1.29.17-1.41-.08-.12-.28-.2-.57-.35z"/>
+            </svg>
+        </a>
+        <a class="floating-btn phone" href="tel:+447526098834" aria-label="Call +447526098834">
+            <!-- Phone SVG -->
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1v3.5a1 1 0 01-1 1C10.07 22 2 13.93 2 3.5A1 1 0 013 2.5h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.01l-2.2 2.21z" fill="#ffffff"/>
+            </svg>
+        </a>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/lenis@1.3.17/dist/lenis.min.js"></script>
