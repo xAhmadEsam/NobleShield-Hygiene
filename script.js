@@ -2,9 +2,20 @@
 window.addEventListener('load', function () {
     const loadingScreen = document.getElementById('loading-screen');
     if (loadingScreen) {
+        // Prevent page scrolling while loading screen is visible
+        document.documentElement.classList.add('no-scroll');
+        document.body.classList.add('no-scroll');
+
         // Wait at least 3500ms after load before hiding the loader
         setTimeout(() => {
             loadingScreen.classList.add('hide');
+
+            // remove scroll lock after the loader transition finishes
+            setTimeout(() => {
+                document.documentElement.classList.remove('no-scroll');
+                document.body.classList.remove('no-scroll');
+            }, 700);
+
             // reveal floating action buttons shortly after loader hides
             const floating = document.querySelector('.floating-actions');
             if (floating) {
