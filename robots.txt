@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap location (helps search engines find pages)
+Sitemap: https://nobleshieldhygiene.com/sitemap.xml
